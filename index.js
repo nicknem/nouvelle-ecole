@@ -1,10 +1,11 @@
-  const express = require('express')
+const express = require('express')
 const app = express()
 const router = express.Router();
 const bodyParser = require('body-parser');
 const template = require('pug');
-const path = __dirname + '/views/';
+const path = require('path');
 
+app.use(express.static(path.join(__dirname, 'public'))); //  "public" off of current is root
 app.set('view engine', 'pug');
 app.set('views', './views')
 
@@ -30,18 +31,14 @@ router.get("/",function(req,res){
   res.render('index');
 });
 
-router.get("/about",function(req,res){
-  res.sendFile(path + "about.pug");
-});
-
-router.get("/contact",function(req,res){
-  res.sendFile(path + "contact.html");
+router.get('/contact',function(req,res){
+  res.render('contact');
 });
 
 app.use("/",router);
 
 app.use("*",function(req,res){
-  res.sendFile(path + "404.html");
+  res.render("404");
 });
 
 app.listen(3000, function () {

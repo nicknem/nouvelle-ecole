@@ -1,13 +1,50 @@
 doctype html
 html(lang="fr")
   head
-    title= 'Nouvelle Ecole : Le Podcast des entrepreneurs français'
+    title= 'Nouvelle École : Le Podcast des entrepreneurs français'
+    link(rel="stylesheet" type="text/css" href="../public/css/index.css")
     link(rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+    link(href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css")
     script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
-    script(type='text/javascript').
-      if (foo) bar(1 + 5)
 
   body
-    .jumbotron
-      h1 Sortons des sentiers battus
-      h2 Nouvelle École est le 1er podcast des entrepreneurs français
+    .container
+      nav(class='navbar navbar-default')
+        .container
+          .navbar-header
+            button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+              span(class="sr-only") Toggle navigation
+              span(class="icon-bar")
+              span(class="icon-bar")
+              span(class="icon-bar")
+            a(class='navbar-brand' href='#') Nouvelle École
+
+      .jumbotron
+        h1 Sortir des sentiers battus
+        h2 Nouvelle École est le 1er podcast des entrepreneurs français
+      .soundcloud-embed
+        h3 Les derniers épisodes :
+        iframe(width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/233808212&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false")
+      .about
+        h3 À propos
+        p Nouvelle École offre des perspectives à celles et ceux qui cherchent leur voie.
+      .mailchimp
+        #mc_embed_signup
+          form(action="//antoninarcher.us12.list-manage.com/subscribe/post?u=ba425192c8ef6bf8da40f9b02&amp;id=897a0e2f1f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate)
+        #mc_embed_signup_scroll
+          label(for="mce-EMAIL") Ne manquez aucun épisode !
+          input(type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required)
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        div(style="position: absolute; left: -5000px;" aria-hidden="true")
+          input(type="text" name="b_ba425192c8ef6bf8da40f9b02_897a0e2f1f" tabindex="-1" value="")
+        .clear
+          input(type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button")
+      .footer
+        p Fait avec beaucoup d'amour, de sueur, de larmes par Antonin Archer
+
+    //- jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    //- Include all compiled plugins (below), or include individual files as needed
+    script(src="js/bootstrap.min.js")
+
+
