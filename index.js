@@ -4,15 +4,15 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const template = require('pug');
 const path = require('path');
+require('dotenv').config()
 
 app.use(express.static(path.join(__dirname, 'public'))); //  "public" off of current is root
 app.set('view engine', 'pug');
 app.set('views', './views')
 
-
 // Fire database
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/nouvelleecole');
+mongoose.connect(process.env.MONGODB_URI);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -41,6 +41,6 @@ app.use("*",function(req,res){
   res.render("404");
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('Listening on port 3000!')
 })
